@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'screens/home_screen.dart';
-import 'screens/cart_screen.dart';
-import 'screens/profile_screen.dart';
+import 'screens/main_navigator.dart';
 import 'providers/cart_provider.dart';
 import 'models/cart_item.dart'; // Importar CartItem para registrar el adaptador
 import 'models/product.dart'; // Importar Product para registrar el adaptador
@@ -36,42 +34,7 @@ class MyShopApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
           useMaterial3: true,
         ),
-        initialRoute: '/',
-        routes: {
-          '/': (context) => const HomeScreen(),
-          '/cart': (context) => const CartScreen(),
-          '/profile': (context) => const ProfileScreen(),
-        },
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Mi Tienda Online'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.shopping_cart),
-            onPressed: () {
-              // TODO: Implementar navegación al carrito
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () {
-              // TODO: Implementar navegación al perfil
-            },
-          ),
-        ],
-      ),
-      body: const Center(
-        child: Text('Bienvenido a Mi Tienda Online'),
+        home: const MainNavigator(),
       ),
     );
   }
