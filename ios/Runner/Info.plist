@@ -45,5 +45,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+	<!-- Permisos para image_picker y firebase_storage -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Esta aplicación necesita acceso a tu galería de fotos para que puedas seleccionar una foto de perfil.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Esta aplicación necesita acceso a tu cámara para que puedas tomar una nueva foto de perfil.</string>
 </dict>
 </plist>

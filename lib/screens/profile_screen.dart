@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
+import '../models/user.dart';
+import 'edit_profile_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -9,45 +13,62 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Mi Perfil'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildProfileHeader(),
-            _buildMenuItems(),
-          ],
-        ),
+      body: Consumer<AuthProvider>(
+        builder: (context, auth, child) {
+          final user = auth.user;
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                _buildProfileHeader(context, user),
+                _buildMenuItems(context),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
 
-  Widget _buildProfileHeader() {
+  Widget _buildProfileHeader(BuildContext context, User? user) {
     return Container(
       padding: const EdgeInsets.all(16),
       color: Colors.orange.shade50,
       child: Column(
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 50,
-            child: Icon(Icons.person, size: 50),
+            backgroundImage: user?.photoUrl != null
+                ? NetworkImage(user!.photoUrl!)
+                : null,
+            child: user?.photoUrl == null
+                ? const Icon(Icons.person, size: 50)
+                : null,
           ),
           const SizedBox(height: 16),
-          const Text(
-            'Nombre del Usuario',
-            style: TextStyle(
+          Text(
+            user?.name ?? 'Usuario',
+            style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
-            'usuario@email.com',
-            style: TextStyle(
+          Text(
+            user?.email ?? 'usuario@email.com',
+            style: const TextStyle(
               color: Colors.grey,
             ),
           ),
           const SizedBox(height: 16),
           OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const EditProfileScreen(),
+                ),
+              );
+            },
             child: const Text('Editar Perfil'),
           ),
         ],
@@ -55,7 +76,7 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuItems() {
+  Widget _buildMenuItems(BuildContext context) {
     return Column(
       children: [
         _buildMenuItem(
@@ -91,7 +112,9 @@ class ProfileScreen extends StatelessWidget {
         _buildMenuItem(
           icon: Icons.logout,
           title: 'Cerrar Sesión',
-          onTap: () {},
+          onTap: () {
+            Provider.of<AuthProvider>(context, listen: false).logout();
+          },
           textColor: Colors.red,
         ),
       ],

@@ -35,9 +35,18 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   provider: ^6.0.5
-  flutter_credit_card: ^4.1.0
+  flutter_credit_card: ^4.0.1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  path_provider: ^2.0.11 # Added for Hive
+  hive_generator: ^2.0.0
+  build_runner: ^2.4.4
+  # Add Google Sign-In and Firebase Auth dependencies
+  google_sign_in: ^6.1.5
+  firebase_auth: ^4.16.0
+  firebase_core: ^2.25.2
+  image_picker: ^1.0.7
+  firebase_storage: ^11.6.6
 
 dev_dependencies:
   flutter_test:
@@ -49,8 +58,6 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  hive_generator: ^2.0.1
-  build_runner: ^2.4.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -64,32 +71,36 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
+    - assets/images/product_images/
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/to/resolution-aware-images
+  # An image asset can refer to a directional pair of images. For
+  # example:,
+  #
+  #   assets/images/a_dot_burr.jpeg
+  #   assets/images/a_dot_burr.jpeg
 
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/to/asset-from-package
+  # For details regarding assets in packages, see
+  # https://dart.dev/guides/eredReaders/getting-started/asset-Readerers
 
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
+  # To add custom fonts to your application, add a fonts section, like this:
   # fonts:
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-  #   - family: Trajan Pro
+  #   - family: Reader
   #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  #       - asset: fonts/Reader-Reader.ttf
+  #       - asset: fonts/Reader-Italic.ttf
+  #         style: italic
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
+  # see https://flutter.dev/custom-fonts/#Reader-from-packages
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icon.png"
