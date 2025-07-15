@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../widgets/ubicacion_selector.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -13,6 +15,9 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
   late TextEditingController _nameController;
   late TextEditingController _emailController;
+  double? _latitud;
+  double? _longitud;
+  bool _guardandoUbicacion = false;
 
   @override
   void initState() {
@@ -20,6 +25,38 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
     _nameController = TextEditingController(text: authProvider.user?.name ?? '');
     _emailController = TextEditingController(text: authProvider.user?.email ?? '');
+    _cargarUbicacionVendedor();
+  }
+
+  Future<void> _cargarUbicacionVendedor() async {
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final user = authProvider.user;
+    if (user == null) return;
+    final doc = await FirebaseFirestore.instance.collection('sellers').doc(user.id).get();
+    if (doc.exists) {
+      final data = doc.data()!;
+      setState(() {
+        _latitud = (data['latitud'] as num?)?.toDouble();
+        _longitud = (data['longitud'] as num?)?.toDouble();
+      });
+    }
+  }
+
+  Future<void> _guardarUbicacion() async {
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final user = authProvider.user;
+    if (user == null || _latitud == null || _longitud == null) return;
+    setState(() => _guardandoUbicacion = true);
+    await FirebaseFirestore.instance.collection('sellers').doc(user.id).update({
+      'latitud': _latitud,
+      'longitud': _longitud,
+    });
+    setState(() => _guardandoUbicacion = false);
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Ubicación actualizada con éxito!')),
+      );
+    }
   }
 
   @override
@@ -32,9 +69,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Future<void> _saveProfile() async {
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
     final newName = _nameController.text.trim();
+    final messenger = ScaffoldMessenger.of(context); // Obtener messenger antes del async gap
 
     if (newName.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
+      messenger.showSnackBar(
         const SnackBar(content: Text('El nombre no puede estar vacío.')),
       );
       return;
@@ -42,22 +80,27 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
     if (authProvider.user?.name != newName) {
       try {
-        await authProvider.updateUserName(newName); // Llamar al nuevo método en AuthProvider
-        if (!mounted) return; // Asegurar que el widget sigue montado
-        ScaffoldMessenger.of(context).showSnackBar(
+        await authProvider.updateUserName(newName); // Operación asíncrona
+        if (!mounted) return; // Verificar si el widget sigue montado
+        messenger.showSnackBar(
           const SnackBar(content: Text('Perfil actualizado con éxito!')),
         );
-        Navigator.pop(context); // Volver a la pantalla anterior
+        if (mounted) {
+          Navigator.pop(context); // Verificar montado antes de usar context
+        }
       } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
+        if (!mounted) return; // Verificar montado antes de usar context
+        messenger.showSnackBar(
           SnackBar(content: Text('Error al actualizar el perfil: ${e.toString()}')),
         );
       }
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
+      messenger.showSnackBar(
         const SnackBar(content: Text('El nombre es el mismo. No se realizaron cambios.')),
       );
-      Navigator.pop(context);
+      if (mounted) {
+        Navigator.pop(context);
+      }
     }
   }
 
@@ -67,15 +110,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
     if (image != null) {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
+      final messenger = ScaffoldMessenger.of(context); // Obtener messenger antes del async gap
       try {
         await authProvider.updateProfilePhoto(image);
         if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
+        messenger.showSnackBar(
           const SnackBar(content: Text('Foto de perfil actualizada con éxito!')),
         );
       } catch (e) {
         if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
+        messenger.showSnackBar(
           SnackBar(content: Text('Error al actualizar la foto: ${e.toString()}')),
         );
       }
@@ -127,6 +171,31 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       labelText: 'Email',
                       border: OutlineInputBorder(),
                       enabled: false, // Email es de solo lectura
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  // Selector de ubicación para vendedores
+                  const Text('Ubicación en el mapa (solo vendedores)', style: TextStyle(fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 8),
+                  UbicacionSelector(
+                    latitudInicial: _latitud,
+                    longitudInicial: _longitud,
+                    onUbicacionSeleccionada: (lat, lng) {
+                      setState(() {
+                        _latitud = lat;
+                        _longitud = lng;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      onPressed: _guardandoUbicacion ? null : _guardarUbicacion,
+                      icon: const Icon(Icons.location_on),
+                      label: _guardandoUbicacion
+                          ? const Text('Guardando...')
+                          : const Text('Guardar Ubicación'),
                     ),
                   ),
                   const SizedBox(height: 24),

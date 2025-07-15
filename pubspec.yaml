@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.2
+  sdk: '>=3.0.0 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -30,23 +30,32 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  provider: ^6.0.5
-  flutter_credit_card: ^4.0.1
+  provider: ^6.1.1
+  flutter_credit_card: ^4.1.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  path_provider: ^2.0.11 # Added for Hive
-  hive_generator: ^2.0.0
-  build_runner: ^2.4.4
+  path_provider: ^2.1.5 # Added for Hive
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.7
   # Add Google Sign-In and Firebase Auth dependencies
   google_sign_in: ^6.1.5
-  firebase_auth: ^4.16.0
-  firebase_core: ^2.25.2
+  firebase_auth: ^4.15.3
+  firebase_core: ^2.24.2
   image_picker: ^1.0.7
-  firebase_storage: ^11.6.6
+  firebase_storage: ^11.5.6
+  cloud_firestore: ^4.13.6
+  cached_network_image: ^3.3.1
+  uuid: ^4.3.3
+  intl: ^0.19.0
+  flutter_staggered_grid_view: ^0.7.0
+  http: ^1.4.0
+  dropdown_search: ^5.0.6
+  flutter_local_notifications: ^19.3.0
+  google_maps_flutter: ^2.5.0
+  geolocator: ^10.1.0
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +67,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: "^0.13.1"
+  flutter_native_splash: ^2.3.11 # Nueva dependencia para la splash screen
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -74,6 +85,11 @@ flutter:
   assets:
     - assets/images/
     - assets/images/product_images/
+    - assets/countries_latam.json
+    - assets/cities_latam.json
+    - assets/states_latam.json
+    - assets/icon/paypal.png
+    - assets/icon/googlepay.png
 
   # An image asset can refer to a directional pair of images. For
   # example:,
@@ -100,7 +116,21 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#Reader-from-packages
 
-flutter_icons:
+flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/images/icon.png"
+  image_path: "assets/icon/Amazin.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true
+
+flutter_native_splash:
+  background_image: "assets/icon/Amazin.png"
+  android_gravity: center
+  ios_content_mode: center
+  color: "#FFFFFF"
+  image: "assets/icon/Amazin.png"
+  android_12:
+    image: "assets/icon/Amazin.png"
+    icon_background_color: "#FFFFFF"
+    image_dark: "assets/icon/Amazin.png"
+    icon_background_color_dark: "#FFFFFF"

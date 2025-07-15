@@ -24,7 +24,7 @@ class CartProvider with ChangeNotifier {
     // Abrir o crear la caja
     _cartBox = await Hive.openBox<CartItem>(_cartBoxName);
     // Limpiar la caja para depurar problemas de deserialización con datos antiguos
-    await _cartBox.clear();
+    // await _cartBox.clear();
 
     // Cargar ítems existentes
     _items.clear();

@@ -1,0 +1,318 @@
+[
+  {
+    "countryCode": "AR",
+    "countryName": "Argentina",
+    "states": [
+      {"name": "Buenos Aires", "code": "BA"},
+      {"name": "Córdoba", "code": "CB"},
+      {"name": "Santa Fe", "code": "SF"},
+      {"name": "Mendoza", "code": "MD"},
+      {"name": "Tucumán", "code": "TU"},
+      {"name": "Entre Ríos", "code": "ER"},
+      {"name": "Salta", "code": "SA"},
+      {"name": "Misiones", "code": "MI"},
+      {"name": "Chaco", "code": "CH"},
+      {"name": "Corrientes", "code": "CT"}
+    ]
+  },
+  {
+    "countryCode": "BO",
+    "countryName": "Bolivia",
+    "states": [
+      {"name": "La Paz", "code": "LP"},
+      {"name": "Santa Cruz", "code": "SC"},
+      {"name": "Cochabamba", "code": "CB"},
+      {"name": "Oruro", "code": "OR"},
+      {"name": "Chuquisaca", "code": "CH"},
+      {"name": "Tarija", "code": "TA"},
+      {"name": "Potosí", "code": "PT"},
+      {"name": "Beni", "code": "BN"},
+      {"name": "Pando", "code": "PD"}
+    ]
+  },
+  {
+    "countryCode": "BR",
+    "countryName": "Brasil",
+    "states": [
+      {"name": "São Paulo", "code": "SP"},
+      {"name": "Río de Janeiro", "code": "RJ"},
+      {"name": "Minas Gerais", "code": "MG"},
+      {"name": "Bahía", "code": "BA"},
+      {"name": "Paraná", "code": "PR"},
+      {"name": "Río Grande del Sur", "code": "RS"},
+      {"name": "Pernambuco", "code": "PE"},
+      {"name": "Ceará", "code": "CE"},
+      {"name": "Pará", "code": "PA"},
+      {"name": "Santa Catarina", "code": "SC"}
+    ]
+  },
+  {
+    "countryCode": "CL",
+    "countryName": "Chile",
+    "states": [
+      {"name": "Región Metropolitana", "code": "RM"},
+      {"name": "Valparaíso", "code": "VP"},
+      {"name": "Biobío", "code": "BB"},
+      {"name": "Coquimbo", "code": "CQ"},
+      {"name": "Antofagasta", "code": "AN"},
+      {"name": "La Araucanía", "code": "AR"},
+      {"name": "Los Lagos", "code": "LL"},
+      {"name": "Tarapacá", "code": "TP"},
+      {"name": "Arica y Parinacota", "code": "AP"},
+      {"name": "Maule", "code": "ML"}
+    ]
+  },
+  {
+    "countryCode": "CO",
+    "countryName": "Colombia",
+    "states": [
+      {"name": "Antioquia", "code": "AN"},
+      {"name": "Cundinamarca", "code": "CU"},
+      {"name": "Valle del Cauca", "code": "VC"},
+      {"name": "Atlántico", "code": "AT"},
+      {"name": "Bolívar", "code": "BL"},
+      {"name": "Norte de Santander", "code": "NS"},
+      {"name": "Santander", "code": "ST"},
+      {"name": "Risaralda", "code": "RS"},
+      {"name": "Magdalena", "code": "MG"},
+      {"name": "Tolima", "code": "TL"}
+    ]
+  },
+  {
+    "countryCode": "CR",
+    "countryName": "Costa Rica",
+    "states": [
+      {"name": "San José", "code": "SJ"},
+      {"name": "Alajuela", "code": "AL"},
+      {"name": "Cartago", "code": "CT"},
+      {"name": "Heredia", "code": "HE"},
+      {"name": "Guanacaste", "code": "GU"},
+      {"name": "Puntarenas", "code": "PU"},
+      {"name": "Limón", "code": "LM"}
+    ]
+  },
+  {
+    "countryCode": "CU",
+    "countryName": "Cuba",
+    "states": [
+      {"name": "La Habana", "code": "LH"},
+      {"name": "Santiago de Cuba", "code": "SC"},
+      {"name": "Camagüey", "code": "CM"},
+      {"name": "Holguín", "code": "HG"},
+      {"name": "Villa Clara", "code": "VC"},
+      {"name": "Guantánamo", "code": "GT"},
+      {"name": "Granma", "code": "GR"},
+      {"name": "Cienfuegos", "code": "CF"},
+      {"name": "Pinar del Río", "code": "PD"},
+      {"name": "Matanzas", "code": "MT"}
+    ]
+  },
+  {
+    "countryCode": "EC",
+    "countryName": "Ecuador",
+    "states": [
+      {"name": "Guayas", "code": "GY"},
+      {"name": "Pichincha", "code": "PC"},
+      {"name": "Azuay", "code": "AZ"},
+      {"name": "Santo Domingo", "code": "SD"},
+      {"name": "El Oro", "code": "EO"},
+      {"name": "Manabí", "code": "MN"},
+      {"name": "Los Ríos", "code": "LR"},
+      {"name": "Loja", "code": "LJ"},
+      {"name": "Tungurahua", "code": "TG"},
+      {"name": "Imbabura", "code": "IM"}
+    ]
+  },
+  {
+    "countryCode": "SV",
+    "countryName": "El Salvador",
+    "states": [
+      {"name": "San Salvador", "code": "SS"},
+      {"name": "Santa Ana", "code": "SA"},
+      {"name": "San Miguel", "code": "SM"},
+      {"name": "La Libertad", "code": "LL"},
+      {"name": "Sonsonate", "code": "SN"},
+      {"name": "Ahuachapán", "code": "AH"},
+      {"name": "Usulután", "code": "US"},
+      {"name": "Chalatenango", "code": "CH"},
+      {"name": "Cuscatlán", "code": "CS"},
+      {"name": "La Paz", "code": "LP"}
+    ]
+  },
+  {
+    "countryCode": "GT",
+    "countryName": "Guatemala",
+    "states": [
+      {"name": "Guatemala", "code": "GT"},
+      {"name": "Quetzaltenango", "code": "QT"},
+      {"name": "Escuintla", "code": "ES"},
+      {"name": "Huehuetenango", "code": "HG"},
+      {"name": "Alta Verapaz", "code": "AV"},
+      {"name": "San Marcos", "code": "SM"},
+      {"name": "Jutiapa", "code": "JT"},
+      {"name": "Baja Verapaz", "code": "BV"},
+      {"name": "Chimaltenango", "code": "CM"},
+      {"name": "Sacatepéquez", "code": "SC"}
+    ]
+  },
+  {
+    "countryCode": "HN",
+    "countryName": "Honduras",
+    "states": [
+      {"name": "Francisco Morazán", "code": "FM"},
+      {"name": "Cortés", "code": "CT"},
+      {"name": "Yoro", "code": "YR"},
+      {"name": "Atlántida", "code": "AT"},
+      {"name": "El Paraíso", "code": "EP"},
+      {"name": "Choluteca", "code": "CH"},
+      {"name": "Comayagua", "code": "CM"},
+      {"name": "Colón", "code": "CL"},
+      {"name": "Olancho", "code": "OL"},
+      {"name": "Copán", "code": "CP"}
+    ]
+  },
+  {
+    "countryCode": "MX",
+    "countryName": "México",
+    "states": [
+      {"name": "Jalisco", "code": "JL"},
+      {"name": "México", "code": "MX"},
+      {"name": "Veracruz", "code": "VR"},
+      {"name": "Puebla", "code": "PB"},
+      {"name": "Guanajuato", "code": "GT"},
+      {"name": "Nuevo León", "code": "NL"},
+      {"name": "Michoacán", "code": "MC"},
+      {"name": "Oaxaca", "code": "OX"},
+      {"name": "Chiapas", "code": "CP"},
+      {"name": "Sinaloa", "code": "SL"}
+    ]
+  },
+  {
+    "countryCode": "NI",
+    "countryName": "Nicaragua",
+    "states": [
+      {"name": "Managua", "code": "MG"},
+      {"name": "León", "code": "LN"},
+      {"name": "Masaya", "code": "MS"},
+      {"name": "Chinandega", "code": "CH"},
+      {"name": "Matagalpa", "code": "MT"},
+      {"name": "Estelí", "code": "ES"},
+      {"name": "Granada", "code": "GR"},
+      {"name": "Jinotega", "code": "JN"},
+      {"name": "Carazo", "code": "CR"},
+      {"name": "Rivas", "code": "RV"}
+    ]
+  },
+  {
+    "countryCode": "PA",
+    "countryName": "Panamá",
+    "states": [
+      {"name": "Panamá", "code": "PN"},
+      {"name": "Chiriquí", "code": "CH"},
+      {"name": "Colón", "code": "CL"},
+      {"name": "Veraguas", "code": "VG"},
+      {"name": "Herrera", "code": "HR"},
+      {"name": "Los Santos", "code": "LS"},
+      {"name": "Darién", "code": "DR"},
+      {"name": "Bocas del Toro", "code": "BT"},
+      {"name": "Coclé", "code": "CC"},
+      {"name": "Panamá Oeste", "code": "PO"}
+    ]
+  },
+  {
+    "countryCode": "PY",
+    "countryName": "Paraguay",
+    "states": [
+      {"name": "Central", "code": "CT"},
+      {"name": "Alto Paraná", "code": "AP"},
+      {"name": "Itapúa", "code": "IT"},
+      {"name": "Caaguazú", "code": "CG"},
+      {"name": "San Pedro", "code": "SP"},
+      {"name": "Caazapá", "code": "CZ"},
+      {"name": "Guairá", "code": "GU"},
+      {"name": "Cordillera", "code": "CD"},
+      {"name": "Paraguarí", "code": "PG"},
+      {"name": "Concepción", "code": "CC"}
+    ]
+  },
+  {
+    "countryCode": "PE",
+    "countryName": "Perú",
+    "states": [
+      {"name": "Lima", "code": "LM"},
+      {"name": "Arequipa", "code": "AQ"},
+      {"name": "La Libertad", "code": "LL"},
+      {"name": "Lambayeque", "code": "LB"},
+      {"name": "Piura", "code": "PI"},
+      {"name": "Loreto", "code": "LR"},
+      {"name": "Cusco", "code": "CS"},
+      {"name": "Ancash", "code": "AN"},
+      {"name": "Junín", "code": "JN"},
+      {"name": "Tacna", "code": "TC"}
+    ]
+  },
+  {
+    "countryCode": "PR",
+    "countryName": "Puerto Rico",
+    "states": [
+      {"name": "San Juan", "code": "SJ"},
+      {"name": "Bayamón", "code": "BY"},
+      {"name": "Carolina", "code": "CR"},
+      {"name": "Ponce", "code": "PC"},
+      {"name": "Caguas", "code": "CG"},
+      {"name": "Guaynabo", "code": "GY"},
+      {"name": "Arecibo", "code": "AR"},
+      {"name": "Toa Baja", "code": "TB"},
+      {"name": "Mayagüez", "code": "MY"},
+      {"name": "Trujillo Alto", "code": "TA"}
+    ]
+  },
+  {
+    "countryCode": "DO",
+    "countryName": "República Dominicana",
+    "states": [
+      {"name": "Santo Domingo", "code": "SD"},
+      {"name": "Santiago", "code": "ST"},
+      {"name": "San Cristóbal", "code": "SC"},
+      {"name": "La Vega", "code": "LV"},
+      {"name": "San Pedro de Macorís", "code": "SPM"},
+      {"name": "La Romana", "code": "LR"},
+      {"name": "San Francisco de Macorís", "code": "SFM"},
+      {"name": "Barahona", "code": "BR"},
+      {"name": "Puerto Plata", "code": "PP"},
+      {"name": "Azua", "code": "AZ"}
+    ]
+  },
+  {
+    "countryCode": "UY",
+    "countryName": "Uruguay",
+    "states": [
+      {"name": "Montevideo", "code": "MT"},
+      {"name": "Canelones", "code": "CN"},
+      {"name": "Salto", "code": "SL"},
+      {"name": "Paysandú", "code": "PY"},
+      {"name": "Rivera", "code": "RV"},
+      {"name": "Maldonado", "code": "MD"},
+      {"name": "Tacuarembó", "code": "TC"},
+      {"name": "Cerro Largo", "code": "CL"},
+      {"name": "Durazno", "code": "DR"},
+      {"name": "Rocha", "code": "RC"}
+    ]
+  },
+  {
+    "countryCode": "VE",
+    "countryName": "Venezuela",
+    "states": [
+      {"name": "Miranda", "code": "MR"},
+      {"name": "Zulia", "code": "ZL"},
+      {"name": "Carabobo", "code": "CB"},
+      {"name": "Lara", "code": "LR"},
+      {"name": "Aragua", "code": "AR"},
+      {"name": "Bolívar", "code": "BL"},
+      {"name": "Monagas", "code": "MG"},
+      {"name": "Anzoátegui", "code": "AN"},
+      {"name": "Sucre", "code": "SC"},
+      {"name": "Táchira", "code": "TC"}
+    ]
+  }
+] 

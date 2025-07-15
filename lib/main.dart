@@ -10,10 +10,12 @@ import 'screens/auth/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'screens/auth/loading_screen.dart';
+// import 'services/category_seed.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  print('Después de Hive');
 
   // Registrar adaptadores si no están registrados
   if (!Hive.isAdapterRegistered(0)) {
@@ -23,11 +25,15 @@ Future<void> main() async {
     Hive.registerAdapter(ProductAdapter());
   }
 
+  print('Antes de Firebase');
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  print('Después de Firebase');
+  // await seedCategories(); // <-- Esto agrega las categorías a Firestore
 
   runApp(const MyShopApp());
+  print('Después de runApp');
 }
 
 class MyShopApp extends StatelessWidget {

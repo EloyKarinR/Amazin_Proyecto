@@ -29,7 +29,8 @@ class AuthProvider with ChangeNotifier {
           name: firebaseUser.displayName ?? 'Usuario',
           email: firebaseUser.email ?? '',
           photoUrl: firebaseUser.photoURL,
-          role: UserRole.comprador,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
         );
       } else {
         // Si no hay usuario autenticado, establece _user a null
@@ -71,7 +72,8 @@ class AuthProvider with ChangeNotifier {
         id: credential.user!.uid,
         name: credential.user!.displayName ?? 'Usuario', // Usar displayName o un nombre por defecto
         email: credential.user!.email!,
-        role: UserRole.comprador, // Puedes obtener el rol de Firebase si lo almacenas allí
+        createdAt: DateTime.now(),
+        updatedAt: DateTime.now(),
       );
       
       _isLoading = false;
@@ -88,7 +90,7 @@ class AuthProvider with ChangeNotifier {
   }
 
   // Método para registrar un nuevo usuario
-  Future<void> register(String name, String email, String password, UserRole role) async {
+  Future<void> register(String name, String email, String password) async {
     try {
       _isLoading = true;
       _error = null;
@@ -107,7 +109,8 @@ class AuthProvider with ChangeNotifier {
         id: credential.user!.uid,
         name: name,
         email: credential.user!.email!,
-        role: role,
+        createdAt: DateTime.now(),
+        updatedAt: DateTime.now(),
       );
       
       _isLoading = false;
@@ -153,19 +156,21 @@ class AuthProvider with ChangeNotifier {
 
   // Método para iniciar sesión con Google
   Future<void> signInWithGoogle() async {
-    try {
-      _isLoading = true;
-      _error = null;
-      notifyListeners();
+    _isLoading = true;
+    _error = null;
+    notifyListeners();
 
-      // Iniciar el flujo de inicio de sesión interactivo de Google
+    try {
+      // Forzar la selección de cuenta, borrando la sesión previa de Google Sign-In
+      await GoogleSignIn().signOut();
+
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
       // Si el usuario cancela el inicio de sesión, googleUser será null
       if (googleUser == null) {
         _isLoading = false;
         notifyListeners();
-        return; // Salir si el usuario canceló
+        return;
       }
 
       // Obtener los detalles de autenticación de la solicitud
@@ -186,7 +191,8 @@ class AuthProvider with ChangeNotifier {
         name: userCredential.user!.displayName ?? googleUser.displayName ?? 'Usuario',
         email: userCredential.user!.email ?? googleUser.email,
         photoUrl: userCredential.user!.photoURL ?? googleUser.photoUrl,
-        role: UserRole.comprador,
+        createdAt: DateTime.now(),
+        updatedAt: DateTime.now(),
       );
       
       _isLoading = false;
@@ -206,33 +212,26 @@ class AuthProvider with ChangeNotifier {
   Future<void> updateUserName(String newName) async {
     _isLoading = true;
     _error = null;
-    notifyListeners(); // Notifica para mostrar el estado de carga
+    notifyListeners();
 
     try {
       final firebase_auth.User? currentUser = firebase_auth.FirebaseAuth.instance.currentUser;
       if (currentUser != null) {
-        // *** IMPORTANTE: Actualizar el usuario local ANTES de la llamada a Firebase,
-        // ya que la llamada a Firebase puede lanzar un error de Pigeon que no nos impide
-        // actualizar el backend, pero sí rompe el flujo local de UI.
-        _user = _user?.copyWith(name: newName); // Actualiza el usuario local instantáneamente
-        notifyListeners(); // Notifica a los oyentes para que la UI se actualice AL INSTANTE
+        _user = _user?.copyWith(name: newName); 
+        notifyListeners(); 
 
-        await currentUser.updateDisplayName(newName); // Esto puede lanzar el error de Pigeon internamente
+        await currentUser.updateDisplayName(newName); 
 
       } else {
         _error = 'Usuario no autenticado para actualizar el nombre.';
       }
     } on firebase_auth.FirebaseAuthException catch (e) {
-      _error = e.message; // Captura errores específicos de autenticación de Firebase
-      // Si hay un error de Firebase Auth, podrías revertir el cambio local aquí si lo necesitas
-      // o simplemente dejar que el error se propague para informar al usuario.
+      _error = e.message; 
     } catch (e) {
-      // Esto capturará el error de Pigeon u otros errores inesperados.
-      // Ya que sabemos que el backend de Firebase SÍ se actualiza, mantenemos el _user local actualizado.
       _error = 'Error interno al actualizar perfil. El cambio se guardó, pero hubo un problema de sincronización local.';
     } finally {
       _isLoading = false;
-      notifyListeners(); // Notificación final para asegurar que el estado de carga se desactive y la UI esté actualizada.
+      notifyListeners(); 
     }
   }
 
@@ -240,50 +239,39 @@ class AuthProvider with ChangeNotifier {
   Future<void> updateProfilePhoto(XFile imageFile) async {
     _isLoading = true;
     _error = null;
-    notifyListeners(); // Notifica para mostrar el estado de carga
+    notifyListeners();
 
-    print('DEBUG FOTO: Iniciando updateProfilePhoto.');
     try {
       final firebase_auth.User? currentUser = firebase_auth.FirebaseAuth.instance.currentUser;
       if (currentUser != null) {
-        print('DEBUG FOTO: Usuario actual UID: ${currentUser.uid}');
         final storageRef = firebase_storage.FirebaseStorage.instance
             .ref()
-            .child('user_photos')
-            .child('${currentUser.uid}.jpg'); // Nombre del archivo basado en UID
+            .child('profile_photos')
+            .child('${currentUser.uid}.jpg');
 
-        print('DEBUG FOTO: Subiendo archivo a: ${storageRef.fullPath}');
         await storageRef.putFile(File(imageFile.path));
-        print('DEBUG FOTO: Archivo subido con éxito. Obteniendo URL...');
 
         final photoUrl = await storageRef.getDownloadURL();
-        print('DEBUG FOTO: URL de descarga obtenida: $photoUrl');
 
         await currentUser.updatePhotoURL(photoUrl);
-        print('DEBUG FOTO: photoURL de Firebase actualizado.');
 
-        // Actualizar el usuario local en el provider
         _user = _user?.copyWith(photoUrl: photoUrl);
-        notifyListeners(); // Notifica a los oyentes para que la UI se actualice AL INSTANTE
-        print('DEBUG FOTO: Usuario local y UI notificados.');
-
+        
+        _isLoading = false;
+        notifyListeners();
       } else {
-        _error = 'Usuario no autenticado para actualizar la foto.';
-        print('DEBUG FOTO: Error: Usuario no autenticado.');
+        _error = 'Usuario no autenticado para actualizar la foto de perfil.';
+        _isLoading = false;
+        notifyListeners();
       }
     } on firebase_auth.FirebaseAuthException catch (e) {
       _error = e.message;
-      print('DEBUG FOTO: FirebaseAuthException: ${e.message}');
-    } on firebase_storage.FirebaseException catch (e) {
-      _error = 'Error al subir la imagen a Storage: ${e.message}';
-      print('DEBUG FOTO: FirebaseStorageException: ${e.message}');
-    } catch (e) {
-      _error = 'Error inesperado al actualizar la foto: ${e.toString()}';
-      print('DEBUG FOTO: Error general (catch all): ${e.toString()}');
-    } finally {
       _isLoading = false;
       notifyListeners();
-      print('DEBUG FOTO: Finalizando updateProfilePhoto.');
+    } catch (e) {
+      _error = e.toString();
+      _isLoading = false;
+      notifyListeners();
     }
   }
-} 
+}

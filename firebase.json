@@ -1,1 +1,28 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"ticket-app-62497","appId":"1:875292662938:android:cb31af20b139937fdcd323","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"ticket-app-62497","configurations":{"android":"1:875292662938:android:cb31af20b139937fdcd323","ios":"1:875292662938:ios:f77424da520e4d2ddcd323","macos":"1:875292662938:ios:f77424da520e4d2ddcd323","web":"1:875292662938:web:b900ce48b7c5665edcd323","windows":"1:875292662938:web:1b078526131bade3dcd323"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "ticket-app-62497",
+          "appId": "1:875292662938:android:cb31af20b139937fdcd323",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "ticket-app-62497",
+          "configurations": {
+            "android": "1:875292662938:android:cb31af20b139937fdcd323",
+            "ios": "1:875292662938:ios:f77424da520e4d2ddcd323",
+            "macos": "1:875292662938:ios:f77424da520e4d2ddcd323",
+            "web": "1:875292662938:web:b900ce48b7c5665edcd323",
+            "windows": "1:875292662938:web:1b078526131bade3dcd323"
+          }
+        }
+      }
+    }
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

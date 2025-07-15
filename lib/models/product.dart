@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hive/hive.dart';
 
 part 'product.g.dart';
@@ -15,15 +16,23 @@ class Product extends HiveObject {
   @HiveField(4)
   final String imageUrl;
   @HiveField(5)
-  final String category;
+  final String categoryId;
   @HiveField(6)
-  final double rating;
-  @HiveField(7)
   final int stock;
+  @HiveField(7)
+  final double rating;
   @HiveField(8)
-  final List<String> images;
+  final int reviewCount;
   @HiveField(9)
-  final Map<String, dynamic> specifications;
+  final bool isFeatured;
+  @HiveField(10)
+  final DateTime createdAt;
+  @HiveField(11)
+  final DateTime updatedAt;
+  @HiveField(12)
+  final String sellerId;
+  @HiveField(13)
+  final Map<String, String> caracteristicas;
 
   Product({
     required this.id,
@@ -31,26 +40,52 @@ class Product extends HiveObject {
     required this.description,
     required this.price,
     required this.imageUrl,
-    required this.category,
-    required this.rating,
+    required this.categoryId,
     required this.stock,
-    required this.images,
-    required this.specifications,
+    this.rating = 0.0,
+    this.reviewCount = 0,
+    this.isFeatured = false,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.sellerId,
+    this.caracteristicas = const {},
   });
 
   // Método para crear un producto desde JSON
   factory Product.fromJson(Map<String, dynamic> json) {
+    // Helper para parsear fechas sin importar si son Timestamp o String
+    DateTime parseDate(dynamic dateValue) {
+      if (dateValue is Timestamp) {
+        return dateValue.toDate();
+      }
+      if (dateValue is String) {
+        return DateTime.parse(dateValue);
+      }
+      // Si el valor es nulo o de un tipo inesperado, devuelve la fecha actual.
+      return DateTime.now();
+    }
+
+    final createdAtDate = parseDate(json['createdAt']);
+    // Si 'updatedAt' no existe o es nulo, usa 'createdAt' como valor por defecto.
+    final updatedAtDate = json.containsKey('updatedAt') && json['updatedAt'] != null 
+        ? parseDate(json['updatedAt']) 
+        : createdAtDate;
+
     return Product(
       id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String,
       price: (json['price'] as num).toDouble(),
       imageUrl: json['imageUrl'] as String,
-      category: json['category'] as String,
-      rating: (json['rating'] as num).toDouble(),
-      stock: json['stock'] as int,
-      images: List<String>.from(json['images'] as List),
-      specifications: json['specifications'] as Map<String, dynamic>,
+      categoryId: json['categoryId'] as String,
+      stock: json['stock'] as int? ?? 0,
+      rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
+      reviewCount: json['reviewCount'] as int? ?? 0,
+      isFeatured: json['isFeatured'] as bool? ?? false,
+      createdAt: createdAtDate,
+      updatedAt: updatedAtDate,
+      sellerId: json['sellerId'] as String? ?? '',
+      caracteristicas: (json['caracteristicas'] as Map<String, dynamic>?)?.map((k, v) => MapEntry(k, v.toString())) ?? {},
     );
   }
 
@@ -62,11 +97,15 @@ class Product extends HiveObject {
       'description': description,
       'price': price,
       'imageUrl': imageUrl,
-      'category': category,
-      'rating': rating,
+      'categoryId': categoryId,
       'stock': stock,
-      'images': images,
-      'specifications': specifications,
+      'rating': rating,
+      'reviewCount': reviewCount,
+      'isFeatured': isFeatured,
+      'createdAt': createdAt.toIso8601String(),
+      'updatedAt': updatedAt.toIso8601String(),
+      'sellerId': sellerId,
+      'caracteristicas': caracteristicas,
     };
   }
 
@@ -77,11 +116,15 @@ class Product extends HiveObject {
     String? description,
     double? price,
     String? imageUrl,
-    String? category,
-    double? rating,
+    String? categoryId,
     int? stock,
-    List<String>? images,
-    Map<String, dynamic>? specifications,
+    double? rating,
+    int? reviewCount,
+    bool? isFeatured,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    String? sellerId,
+    Map<String, String>? caracteristicas,
   }) {
     return Product(
       id: id ?? this.id,
@@ -89,11 +132,15 @@ class Product extends HiveObject {
       description: description ?? this.description,
       price: price ?? this.price,
       imageUrl: imageUrl ?? this.imageUrl,
-      category: category ?? this.category,
-      rating: rating ?? this.rating,
+      categoryId: categoryId ?? this.categoryId,
       stock: stock ?? this.stock,
-      images: images ?? this.images,
-      specifications: specifications ?? this.specifications,
+      rating: rating ?? this.rating,
+      reviewCount: reviewCount ?? this.reviewCount,
+      isFeatured: isFeatured ?? this.isFeatured,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      sellerId: sellerId ?? this.sellerId,
+      caracteristicas: caracteristicas ?? this.caracteristicas,
     );
   }
 } 

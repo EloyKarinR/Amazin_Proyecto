@@ -1,0 +1,14 @@
+    rules_version = '2';
+    service firebase.storage {
+      match /b/{bucket}/o {
+        match /{allPaths=**} {
+          // Permitir lectura si el usuario está autenticado
+          allow read: if request.auth != null;
+        }
+        // Permitir escritura SOLO en la carpeta 'user_photos'
+        // y solo si el usuario está autenticado y el ID del archivo coincide con su UID
+        match /user_photos/{userId} {
+          allow write: if request.auth != null && request.auth.uid == userId;
+        }
+      }
+    }

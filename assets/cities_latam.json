@@ -1,0 +1,322 @@
+[
+  {
+    "countryCode": "AR",
+    "countryName": "Argentina",
+    "cities": [
+      {"name": "Buenos Aires", "id": "BA"},
+      {"name": "Córdoba", "id": "CB"},
+      {"name": "Rosario", "id": "RS"},
+      {"name": "Mendoza", "id": "MD"},
+      {"name": "La Plata", "id": "LP"},
+      {"name": "San Miguel de Tucumán", "id": "TU"},
+      {"name": "Mar del Plata", "id": "MP"},
+      {"name": "Salta", "id": "SA"},
+      {"name": "Santa Fe", "id": "SF"},
+      {"name": "San Juan", "id": "SJ"}
+    ]
+  },
+  {
+    "countryCode": "BO",
+    "countryName": "Bolivia",
+    "cities": [
+      {"name": "La Paz", "id": "LP"},
+      {"name": "Santa Cruz de la Sierra", "id": "SC"},
+      {"name": "Cochabamba", "id": "CB"},
+      {"name": "Oruro", "id": "OR"},
+      {"name": "Sucre", "id": "SU"},
+      {"name": "Tarija", "id": "TA"},
+      {"name": "Potosí", "id": "PT"},
+      {"name": "El Alto", "id": "EA"},
+      {"name": "Trinidad", "id": "TR"},
+      {"name": "Cobija", "id": "CO"}
+    ]
+  },
+  {
+    "countryCode": "BR",
+    "countryName": "Brasil",
+    "cities": [
+      {"name": "São Paulo", "id": "SP"},
+      {"name": "Río de Janeiro", "id": "RJ"},
+      {"name": "Brasilia", "id": "DF"},
+      {"name": "Salvador", "id": "BA"},
+      {"name": "Fortaleza", "id": "CE"},
+      {"name": "Belo Horizonte", "id": "MG"},
+      {"name": "Manaus", "id": "AM"},
+      {"name": "Curitiba", "id": "PR"},
+      {"name": "Recife", "id": "PE"},
+      {"name": "Porto Alegre", "id": "RS"}
+    ]
+  },
+  {
+    "countryCode": "CL",
+    "countryName": "Chile",
+    "cities": [
+      {"name": "Santiago", "id": "ST"},
+      {"name": "Valparaíso", "id": "VP"},
+      {"name": "Concepción", "id": "CC"},
+      {"name": "La Serena", "id": "LS"},
+      {"name": "Antofagasta", "id": "AN"},
+      {"name": "Viña del Mar", "id": "VM"},
+      {"name": "Temuco", "id": "TE"},
+      {"name": "Iquique", "id": "IQ"},
+      {"name": "Arica", "id": "AR"},
+      {"name": "Puerto Montt", "id": "PM"}
+    ]
+  },
+  {
+    "countryCode": "CO",
+    "countryName": "Colombia",
+    "cities": [
+      {"name": "Bogotá", "id": "BG"},
+      {"name": "Medellín", "id": "MD"},
+      {"name": "Cali", "id": "CL"},
+      {"name": "Barranquilla", "id": "BQ"},
+      {"name": "Cartagena", "id": "CT"},
+      {"name": "Cúcuta", "id": "CC"},
+      {"name": "Bucaramanga", "id": "BC"},
+      {"name": "Pereira", "id": "PR"},
+      {"name": "Santa Marta", "id": "SM"},
+      {"name": "Ibagué", "id": "IB"}
+    ]
+  },
+  {
+    "countryCode": "CR",
+    "countryName": "Costa Rica",
+    "cities": [
+      {"name": "San José", "id": "SJ"},
+      {"name": "Alajuela", "id": "AL"},
+      {"name": "Cartago", "id": "CT"},
+      {"name": "Heredia", "id": "HE"},
+      {"name": "Liberia", "id": "LI"},
+      {"name": "Puntarenas", "id": "PU"},
+      {"name": "Limón", "id": "LM"},
+      {"name": "San Carlos", "id": "SC"},
+      {"name": "Grecia", "id": "GR"},
+      {"name": "Desamparados", "id": "DE"}
+    ]
+  },
+  {
+    "countryCode": "CU",
+    "countryName": "Cuba",
+    "cities": [
+      {"name": "La Habana", "id": "LH"},
+      {"name": "Santiago de Cuba", "id": "SC"},
+      {"name": "Camagüey", "id": "CM"},
+      {"name": "Holguín", "id": "HG"},
+      {"name": "Santa Clara", "id": "ST"},
+      {"name": "Guantánamo", "id": "GT"},
+      {"name": "Bayamo", "id": "BY"},
+      {"name": "Cienfuegos", "id": "CF"},
+      {"name": "Pinar del Río", "id": "PD"},
+      {"name": "Matanzas", "id": "MT"}
+    ]
+  },
+  {
+    "countryCode": "EC",
+    "countryName": "Ecuador",
+    "cities": [
+      {"name": "Guayaquil", "id": "GY"},
+      {"name": "Quito", "id": "QT"},
+      {"name": "Cuenca", "id": "CU"},
+      {"name": "Santo Domingo", "id": "SD"},
+      {"name": "Machala", "id": "MC"},
+      {"name": "Durán", "id": "DR"},
+      {"name": "Manta", "id": "MT"},
+      {"name": "Portoviejo", "id": "PV"},
+      {"name": "Loja", "id": "LJ"},
+      {"name": "Ambato", "id": "AB"}
+    ]
+  },
+  {
+    "countryCode": "SV",
+    "countryName": "El Salvador",
+    "cities": [
+      {"name": "San Salvador", "id": "SS"},
+      {"name": "Santa Ana", "id": "SA"},
+      {"name": "San Miguel", "id": "SM"},
+      {"name": "Mejicanos", "id": "MJ"},
+      {"name": "Soyapango", "id": "SY"},
+      {"name": "San Martín", "id": "ST"},
+      {"name": "Apopa", "id": "AP"},
+      {"name": "Delgado", "id": "DG"},
+      {"name": "Ahuachapán", "id": "AH"},
+      {"name": "Ilobasco", "id": "IL"}
+    ]
+  },
+  {
+    "countryCode": "GT",
+    "countryName": "Guatemala",
+    "cities": [
+      {"name": "Ciudad de Guatemala", "id": "CG"},
+      {"name": "Mixco", "id": "MX"},
+      {"name": "Villa Nueva", "id": "VN"},
+      {"name": "Petapa", "id": "PT"},
+      {"name": "San Juan Sacatepéquez", "id": "SJ"},
+      {"name": "Quetzaltenango", "id": "QT"},
+      {"name": "Villa Canales", "id": "VC"},
+      {"name": "Escuintla", "id": "ES"},
+      {"name": "Santa Catarina Pinula", "id": "SC"},
+      {"name": "San Miguel Petapa", "id": "SM"}
+    ]
+  },
+  {
+    "countryCode": "HN",
+    "countryName": "Honduras",
+    "cities": [
+      {"name": "Tegucigalpa", "id": "TG"},
+      {"name": "San Pedro Sula", "id": "SP"},
+      {"name": "Choloma", "id": "CH"},
+      {"name": "La Ceiba", "id": "LC"},
+      {"name": "El Progreso", "id": "EP"},
+      {"name": "Choluteca", "id": "CT"},
+      {"name": "Comayagua", "id": "CM"},
+      {"name": "Puerto Cortés", "id": "PC"},
+      {"name": "La Lima", "id": "LL"},
+      {"name": "Danlí", "id": "DN"}
+    ]
+  },
+  {
+    "countryCode": "MX",
+    "countryName": "México",
+    "cities": [
+      {"name": "Ciudad de México", "id": "CDMX"},
+      {"name": "Guadalajara", "id": "GDL"},
+      {"name": "Monterrey", "id": "MTY"},
+      {"name": "Puebla", "id": "PUE"},
+      {"name": "Tijuana", "id": "TJA"},
+      {"name": "Ciudad Juárez", "id": "CJU"},
+      {"name": "León", "id": "LEN"},
+      {"name": "Zapopan", "id": "ZAP"},
+      {"name": "Mérida", "id": "MER"},
+      {"name": "Aguascalientes", "id": "AGS"}
+    ]
+  },
+  {
+    "countryCode": "NI",
+    "countryName": "Nicaragua",
+    "cities": [
+      {"name": "Managua", "id": "MG"},
+      {"name": "León", "id": "LN"},
+      {"name": "Masaya", "id": "MS"},
+      {"name": "Chinandega", "id": "CH"},
+      {"name": "Matagalpa", "id": "MT"},
+      {"name": "Estelí", "id": "ES"},
+      {"name": "Granada", "id": "GR"},
+      {"name": "Jinotega", "id": "JN"},
+      {"name": "Bluefields", "id": "BF"},
+      {"name": "Puerto Cabezas", "id": "PC"}
+    ]
+  },
+  {
+    "countryCode": "PA",
+    "countryName": "Panamá",
+    "cities": [
+      {"name": "Ciudad de Panamá", "id": "CP"},
+      {"name": "San Miguelito", "id": "SM"},
+      {"name": "Tocumen", "id": "TC"},
+      {"name": "David", "id": "DV"},
+      {"name": "Arraiján", "id": "AR"},
+      {"name": "Colón", "id": "CL"},
+      {"name": "Santiago", "id": "ST"},
+      {"name": "La Chorrera", "id": "LC"},
+      {"name": "Penonomé", "id": "PN"},
+      {"name": "Chitré", "id": "CH"}
+    ]
+  },
+  {
+    "countryCode": "PY",
+    "countryName": "Paraguay",
+    "cities": [
+      {"name": "Asunción", "id": "AS"},
+      {"name": "Ciudad del Este", "id": "CDE"},
+      {"name": "San Lorenzo", "id": "SL"},
+      {"name": "Luque", "id": "LQ"},
+      {"name": "Capiatá", "id": "CP"},
+      {"name": "Lambaré", "id": "LB"},
+      {"name": "Fernando de la Mora", "id": "FM"},
+      {"name": "Limpio", "id": "LP"},
+      {"name": "Ñemby", "id": "NM"},
+      {"name": "Encarnación", "id": "EN"}
+    ]
+  },
+  {
+    "countryCode": "PE",
+    "countryName": "Perú",
+    "cities": [
+      {"name": "Lima", "id": "LM"},
+      {"name": "Arequipa", "id": "AQ"},
+      {"name": "Trujillo", "id": "TR"},
+      {"name": "Chiclayo", "id": "CH"},
+      {"name": "Piura", "id": "PI"},
+      {"name": "Iquitos", "id": "IQ"},
+      {"name": "Cusco", "id": "CS"},
+      {"name": "Chimbote", "id": "CB"},
+      {"name": "Huancayo", "id": "HJ"},
+      {"name": "Tacna", "id": "TC"}
+    ]
+  },
+  {
+    "countryCode": "PR",
+    "countryName": "Puerto Rico",
+    "cities": [
+      {"name": "San Juan", "id": "SJ"},
+      {"name": "Bayamón", "id": "BY"},
+      {"name": "Carolina", "id": "CR"},
+      {"name": "Ponce", "id": "PC"},
+      {"name": "Caguas", "id": "CG"},
+      {"name": "Guaynabo", "id": "GY"},
+      {"name": "Arecibo", "id": "AR"},
+      {"name": "Toa Baja", "id": "TB"},
+      {"name": "Mayagüez", "id": "MY"},
+      {"name": "Trujillo Alto", "id": "TA"}
+    ]
+  },
+  {
+    "countryCode": "DO",
+    "countryName": "República Dominicana",
+    "cities": [
+      {"name": "Santo Domingo", "id": "SD"},
+      {"name": "Santiago de los Caballeros", "id": "ST"},
+      {"name": "Santo Domingo Este", "id": "SDE"},
+      {"name": "Santo Domingo Norte", "id": "SDN"},
+      {"name": "Santo Domingo Oeste", "id": "SDO"},
+      {"name": "San Pedro de Macorís", "id": "SPM"},
+      {"name": "La Romana", "id": "LR"},
+      {"name": "San Cristóbal", "id": "SC"},
+      {"name": "San Francisco de Macorís", "id": "SFM"},
+      {"name": "La Vega", "id": "LV"}
+    ]
+  },
+  {
+    "countryCode": "UY",
+    "countryName": "Uruguay",
+    "cities": [
+      {"name": "Montevideo", "id": "MT"},
+      {"name": "Salto", "id": "SL"},
+      {"name": "Ciudad de la Costa", "id": "CC"},
+      {"name": "Paysandú", "id": "PY"},
+      {"name": "Las Piedras", "id": "LP"},
+      {"name": "Rivera", "id": "RV"},
+      {"name": "Maldonado", "id": "MD"},
+      {"name": "Tacuarembó", "id": "TC"},
+      {"name": "Melo", "id": "ML"},
+      {"name": "Mercedes", "id": "MR"}
+    ]
+  },
+  {
+    "countryCode": "VE",
+    "countryName": "Venezuela",
+    "cities": [
+      {"name": "Caracas", "id": "CR"},
+      {"name": "Maracaibo", "id": "MC"},
+      {"name": "Valencia", "id": "VL"},
+      {"name": "Barquisimeto", "id": "BQ"},
+      {"name": "Maracay", "id": "MY"},
+      {"name": "Ciudad Guayana", "id": "CG"},
+      {"name": "Maturín", "id": "MT"},
+      {"name": "Barcelona", "id": "BC"},
+      {"name": "Petare", "id": "PT"},
+      {"name": "Turmero", "id": "TM"}
+    ]
+  }
+] 

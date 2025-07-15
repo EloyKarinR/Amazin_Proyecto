@@ -22,18 +22,21 @@ class ProductAdapter extends TypeAdapter<Product> {
       description: fields[2] as String,
       price: fields[3] as double,
       imageUrl: fields[4] as String,
-      category: fields[5] as String,
-      rating: fields[6] as double,
-      stock: fields[7] as int,
-      images: (fields[8] as List).cast<String>(),
-      specifications: (fields[9] as Map).cast<String, dynamic>(),
+      categoryId: fields[5] as String,
+      stock: fields[6] as int,
+      rating: fields[7] as double,
+      reviewCount: fields[8] as int,
+      isFeatured: fields[9] as bool,
+      createdAt: fields[10] as DateTime,
+      updatedAt: fields[11] as DateTime,
+      sellerId: fields[12] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Product obj) {
     writer
-      ..writeByte(10)
+      ..writeByte(13)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -45,15 +48,21 @@ class ProductAdapter extends TypeAdapter<Product> {
       ..writeByte(4)
       ..write(obj.imageUrl)
       ..writeByte(5)
-      ..write(obj.category)
+      ..write(obj.categoryId)
       ..writeByte(6)
-      ..write(obj.rating)
-      ..writeByte(7)
       ..write(obj.stock)
+      ..writeByte(7)
+      ..write(obj.rating)
       ..writeByte(8)
-      ..write(obj.images)
+      ..write(obj.reviewCount)
       ..writeByte(9)
-      ..write(obj.specifications);
+      ..write(obj.isFeatured)
+      ..writeByte(10)
+      ..write(obj.createdAt)
+      ..writeByte(11)
+      ..write(obj.updatedAt)
+      ..writeByte(12)
+      ..write(obj.sellerId);
   }
 
   @override

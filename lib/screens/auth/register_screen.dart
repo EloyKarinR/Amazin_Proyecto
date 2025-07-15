@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/auth_provider.dart';
-import '../../models/user.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -18,7 +17,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _confirmPasswordController = TextEditingController();
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
-  UserRole _selectedRole = UserRole.comprador;
 
   @override
   void dispose() {
@@ -37,7 +35,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         _nameController.text,
         _emailController.text,
         _passwordController.text,
-        _selectedRole,
       );
     }
   }
@@ -196,29 +193,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       return null;
                     },
                     onChanged: (_) => auth.clearError(),
-                  ),
-                  const SizedBox(height: 16),
-                  // Selector de rol
-                  DropdownButtonFormField<UserRole>(
-                    value: _selectedRole,
-                    decoration: InputDecoration(
-                      labelText: 'Rol',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    items: UserRole.values.map((role) {
-                      return DropdownMenuItem<UserRole>(
-                        value: role,
-                        child: Text(role.toString().split('.').last),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedRole = value!;
-                      });
-                      auth.clearError();
-                    },
                   ),
                   if (auth.error != null)
                     Padding(

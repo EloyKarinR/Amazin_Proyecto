@@ -1,8 +1,8 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
-enum UserRole { comprador, vendedor, ambos }
+part 'user.g.dart';
 
-@HiveType(typeId: 1) // Usamos un typeId diferente al de CartItem (0)
+@HiveType(typeId: 0)
 class User extends HiveObject {
   @HiveField(0)
   final String id;
@@ -13,55 +13,63 @@ class User extends HiveObject {
   @HiveField(3)
   final String? photoUrl;
   @HiveField(4)
-  final UserRole role;
+  final String? phoneNumber;
+  @HiveField(5)
+  final DateTime createdAt;
+  @HiveField(6)
+  final DateTime updatedAt;
 
   User({
     required this.id,
     required this.name,
     required this.email,
     this.photoUrl,
-    required this.role,
+    this.phoneNumber,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
-  // Método para crear un usuario desde un mapa (útil para Firebase, aunque no se usará directamente con Hive)
-  factory User.fromMap(Map<String, dynamic> map) {
+  factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: map['id'] as String,
-      name: map['name'] as String,
-      email: map['email'] as String,
-      photoUrl: map['photoUrl'] as String?,
-      role: UserRole.values.firstWhere(
-        (e) => e.toString() == 'UserRole.${map['role']}',
-        orElse: () => UserRole.comprador,
-      ),
+      id: json['id'] as String,
+      name: json['name'] as String,
+      email: json['email'] as String,
+      photoUrl: json['photoUrl'] as String?,
+      phoneNumber: json['phoneNumber'] as String?,
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
   }
 
-  // Método para convertir un usuario a un mapa (útil para Firebase, aunque no se usará directamente con Hive)
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'name': name,
       'email': email,
       'photoUrl': photoUrl,
-      'role': role.toString().split('.').last,
+      'phoneNumber': phoneNumber,
+      'createdAt': createdAt.toIso8601String(),
+      'updatedAt': updatedAt.toIso8601String(),
     };
   }
 
-  // Método para crear una copia del usuario con algunos campos modificados
   User copyWith({
     String? id,
     String? name,
     String? email,
     String? photoUrl,
-    UserRole? role,
+    String? phoneNumber,
+    DateTime? createdAt,
+    DateTime? updatedAt,
   }) {
     return User(
       id: id ?? this.id,
       name: name ?? this.name,
       email: email ?? this.email,
       photoUrl: photoUrl ?? this.photoUrl,
-      role: role ?? this.role,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
 } 

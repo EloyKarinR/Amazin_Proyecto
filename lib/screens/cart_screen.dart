@@ -89,8 +89,8 @@ class CartScreen extends StatelessWidget {
               activeColor: Colors.orange,
             ),
             Container(
-              width: 80,
-              height: 80,
+              width: 70, // reducido de 80 a 70
+              height: 70, // reducido de 80 a 70
               decoration: BoxDecoration(
                 color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(8),
@@ -104,7 +104,7 @@ class CartScreen extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(width: 16),
+            const SizedBox(width: 10), // reducido de 16 a 10
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,9 +126,9 @@ class CartScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           GestureDetector(
                             onTap: item.quantity > 1
@@ -177,11 +177,15 @@ class CartScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const Spacer(),
                       IconButton(
                         icon: Icon(Icons.delete_outline, color: Colors.red.shade700),
                         onPressed: () {
                           cartProvider.removeItem(item.product.id);
                         },
+                        constraints: const BoxConstraints(),
+                        padding: EdgeInsets.zero,
+                        splashRadius: 20,
                       ),
                     ],
                   ),
@@ -213,13 +217,17 @@ class CartScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Total de seleccionados:',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+              const Flexible(
+                child: Text(
+                  'Total de seleccionados:',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
+              const SizedBox(width: 8),
               Text(
                 '\$${cart.selectedTotalAmount.toStringAsFixed(2)}',
                 style: TextStyle(
