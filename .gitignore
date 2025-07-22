@@ -47,3 +47,4 @@ app.*.map.json
 
 google-services.json
 pubspec.lock
+storage.rules
