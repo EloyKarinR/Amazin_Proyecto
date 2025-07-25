@@ -38,69 +38,71 @@ Amazin es una aplicación móvil de e-commerce que permite a los usuarios explor
 <img src="https://github.com/user-attachments/assets/649ebe02-a967-4fa6-b0f9-8891a6dd9935" alt="cap6" width="350"/>
 <img src="https://github.com/user-attachments/assets/5fe191cd-59a5-445b-b5f5-8a198f91b482" alt="cap7" width="350"/>
 
-📝 Estructura del Proyecto
-ticket_app/
-├── 📱 lib/                          # Código fuente principal
-│   ├── main.dart                    # Punto de entrada de la aplicación
-│   ├── firebase_options.dart        # Configuración de Firebase
-│   ├── 📂 screens/                  # Pantallas de la aplicación
-│   │   ├── main_navigator.dart      # Navegación principal
-│   │   ├── home_screen.dart         # Pantalla de inicio
-│   │   ├── products_screen.dart     # Lista de productos
-│   │   ├── product_detail_screen.dart # Detalle de producto
-│   │   ├── cart_screen.dart         # Carrito de compras
-│   │   ├── payment_screen.dart      # Pantalla de pago
-│   │   ├── payment_methods_screen.dart # Métodos de pago
-│   │   ├── recibo_screen.dart       # Recibo de compra
-│   │   ├── historial_compras_screen.dart # Historial de compras
-│   │   ├── address_list_screen.dart # Gestión de direcciones
-│   │   ├── profile_screen.dart      # Perfil de usuario
-│   │   ├── edit_profile_screen.dart # Editar perfil
-│   │   ├── notificaciones_screen.dart # Centro de notificaciones
-│   │   ├── seller_register_screen.dart # Registro de vendedor
-│   │   ├── seller_dashboard_screen.dart # Panel de vendedor
-│   │   ├── sell_product_screen.dart # Vender producto
-│   │   └── 📂 auth/                 # Autenticación
-│   ├── 📂 services/                 # Servicios y lógica de negocio
-│   │   ├── auth_service.dart        # Autenticación con Firebase
-│   │   ├── product_service.dart     # Gestión de productos
-│   │   ├── address_service.dart     # Gestión de direcciones
-│   │   ├── comentario_service.dart  # Sistema de reseñas
-│   │   ├── compra_service.dart      # Gestión de compras
-│   │   ├── payment_method_service.dart # Métodos de pago
-│   │   ├── notificacion_service.dart # Notificaciones
-│   │   ├── seller_service.dart      # Servicios de vendedor
-│   │   └── category_seed.dart       # Datos de categorías
-│   ├── 📂 models/                   # Modelos de datos
-│   │   ├── user.dart                # Modelo de usuario
-│   │   ├── product.dart             # Modelo de producto
-│   │   ├── cart_item.dart           # Elemento del carrito
-│   │   ├── address.dart             # Modelo de dirección
-│   │   ├── comentario.dart          # Modelo de comentario
-│   │   ├── compra.dart              # Modelo de compra
-│   │   ├── payment_method.dart      # Método de pago
-│   │   ├── notificacion.dart        # Modelo de notificación
-│   │   ├── seller.dart              # Modelo de vendedor
-│   │   ├── category.dart            # Modelo de categoría
-│   │   └── *.g.dart                 # Archivos generados
-│   ├── 📂 providers/                # Gestión de estado
-│   └── 📂 widgets/                  # Widgets reutilizables
-├── 📂 assets/                       # Recursos estáticos
-│   ├── 📂 images/                   # Imágenes de productos
-│   ├── 📂 icon/                     # Íconos de la aplicación
-│   ├── cities_latam.json            # Datos de ciudades
-│   ├── states_latam.json            # Datos de estados
-│   └── countries_latam.json         # Datos de países
-├── 📂 android/                      # Configuración Android
-├── 📂 ios/                          # Configuración iOS
-├── 📂 web/                          # Configuración Web
-├── 📂 test/                         # Pruebas unitarias
-├── pubspec.yaml                     # Dependencias del proyecto
-├── firebase.json                    # Configuración Firebase
-├── .firebaserc                      # Configuración Firebase
-├── storage.rules                    # Reglas de Firebase Storage
-└── README.md                        # Documentación del proyecto
+# Estructura del Proyecto Amazin
 
+```
+📦 ticket_app
+├── 📱 lib/
+│   ├── main.dart
+│   ├── firebase_options.dart
+│   ├── 📂 screens/
+│   │   ├── main_navigator.dart
+│   │   ├── home_screen.dart
+│   │   ├── products_screen.dart
+│   │   ├── product_detail_screen.dart
+│   │   ├── cart_screen.dart
+│   │   ├── payment_screen.dart
+│   │   ├── payment_methods_screen.dart
+│   │   ├── recibo_screen.dart
+│   │   ├── historial_compras_screen.dart
+│   │   ├── address_list_screen.dart
+│   │   ├── profile_screen.dart
+│   │   ├── edit_profile_screen.dart
+│   │   ├── notificaciones_screen.dart
+│   │   ├── seller_register_screen.dart
+│   │   ├── seller_dashboard_screen.dart
+│   │   ├── sell_product_screen.dart
+│   │   └── 📂 auth/
+│   ├── 📂 services/
+│   │   ├── auth_service.dart
+│   │   ├── product_service.dart
+│   │   ├── address_service.dart
+│   │   ├── comentario_service.dart
+│   │   ├── compra_service.dart
+│   │   ├── payment_method_service.dart
+│   │   ├── notificacion_service.dart
+│   │   ├── seller_service.dart
+│   │   └── category_seed.dart
+│   ├── 📂 models/
+│   │   ├── user.dart
+│   │   ├── product.dart
+│   │   ├── cart_item.dart
+│   │   ├── address.dart
+│   │   ├── comentario.dart
+│   │   ├── compra.dart
+│   │   ├── payment_method.dart
+│   │   ├── notificacion.dart
+│   │   ├── seller.dart
+│   │   ├── category.dart
+│   │   └── *.g.dart
+│   ├── 📂 providers/
+│   └── 📂 widgets/
+├── 📂 assets/
+│   ├── 📂 images/
+│   ├── 📂 icon/
+│   ├── cities_latam.json
+│   ├── states_latam.json
+│   └── countries_latam.json
+├── 📂 android/
+├── 📂 ios/
+├── 📂 web/
+├── 📂 test/
+├── pubspec.yaml
+├── firebase.json
+├── .firebaserc
+├── storage.rules
+└── README.md
+```
 
 👤 Autor
 Eloy Karin Rivadeneira Miller
