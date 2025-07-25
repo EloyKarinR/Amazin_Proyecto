@@ -28,8 +28,8 @@ Amazin es una aplicación móvil de e-commerce que permite a los usuarios explor
 - Interfaz moderna y responsiva con navegación intuitiva.
 
 
-## 📸 Capturas de Pantalla
-<img src="https://github.com/user-attachments/assets/c8048275-52d4-453a-b96d-a46f80e34749" alt="cap1" width="350"/>
+📸 Capturas de Pantalla
+<img src="https://github.com/user-attachments/assets/c8048275-524d-453a-b96d-a46f80e34749" alt="cap1" width="350"/>
 <img src="https://github.com/user-attachments/assets/7b118d94-11f4-4a0d-84ba-991179a25cf6" alt="cap2" width="350"/>
 
 
